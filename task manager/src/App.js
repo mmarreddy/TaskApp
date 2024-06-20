@@ -5,17 +5,21 @@ import Main from './Main';
 import "./index.css";
 import User from './components/User';
 import { useState} from 'react';
+import UserContext from './components/UserContext';
 
 function App() {
 
   const[user, setUser] = useState('');
 
   return (
+    <UserContext.Provider value={{user, setUser}}>
     <div>
         <Header/>
-        <User user={user} setUser={setUser}/>
+        <User/>
+        <h1>Welcome {user}</h1>
         <Main/>
     </div>
+    </UserContext.Provider>
    
   );
 }

@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useState } from 'react';
 import Modal from './Modal';
 import './task.css'
+import UserContext from './UserContext';
 
 const Task = () => {
+    const {user} = useContext(UserContext)
     const [name, setName] = useState('');
     const[description, setDescription] = useState('');
     const[difficulty, setDifficulty] = useState('');
@@ -54,7 +56,7 @@ const Task = () => {
       </form>
       </div>
       <div className="list-container">
-        <h2>To-Do</h2>
+        <h2>{user ? `${user}'s To-Do List` : 'To-Do'}</h2>
         <h3>Number of tasks: {taskCounter}</h3>
         <ol type="1">
           {taskList.map((task, index) => (

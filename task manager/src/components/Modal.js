@@ -1,7 +1,11 @@
-import React from 'react'
+import UserContext from './UserContext';
+import React, {useContext} from 'react'
 
 const Modal = ({ isOpen, onClose}) => {
+const {user} = useContext(UserContext)
+
 if(!isOpen) return null;
+
   return (
       <div
             style={{
@@ -32,7 +36,7 @@ if(!isOpen) return null;
                     justifyContent: "center",
                 }}
             >
-                <h1>Task has been added!</h1>
+                <h1>Your task has been added {user}!</h1>
                 <button className="closeButton" onClick={onClose}>
                     Close
                  </button>
