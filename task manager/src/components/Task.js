@@ -2,8 +2,8 @@ import React, { useContext, useEffect } from 'react'
 import { useState } from 'react';
 import Modal from './Modal';
 import './task.css'
-import UserContext from './UserContext';
-import useInput from './useInput';
+import UserContext from './hooks/UserContext';
+import useInput from './hooks/useInput';
 
 const Task = () => {
     const {user} = useContext(UserContext)
